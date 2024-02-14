@@ -59,15 +59,13 @@ const request = async ({ method, endpoint, body, query, cache }) => {
         const res = await fetch(url, {
             method,
             mode: 'cors', // requests from localhost will be blocked
-            //cache: 'no-cache',
+            cache: 'no-cache',
             headers: {
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Methods': 'GET, OPTIONS',
-                'Origin': 'http://localhost:5173',
-                'Referer': 'http://localhost:5173'
             },
-            // referrerPolicy: 'no-referrer',
+            referrerPolicy: 'no-referrer',
             body: bodyString,
         })
 
