@@ -1,0 +1,24 @@
+<span id="timerId"></span>
+
+<script>
+    let start
+
+    const element = document.getElementById('timerId');
+
+    const timer = (timestamp) => {
+        if (start === undefined || timestamp - start >= 1000) {
+            start = timestamp
+
+            element.setAttribute('data-content', timestamp)
+        }
+
+        window.requestAnimationFrame(timer)
+    }
+    window.requestAnimationFrame(timer)
+</script>
+
+<style>
+    span:before {
+        content: attr(data-content);
+    }
+</style>
